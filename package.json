@@ -1,4 +1,21 @@
 {
+  "name": "ynov-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marksu-u/YnovJS.git"
+  },
+  "author": "Marksu-u",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marksu-u/YnovJS/issues"
+  },
+  "homepage": "https://github.com/Marksu-u/YnovJS#readme",
   "dependencies": {
     "express": "^4.18.2"
   }
