@@ -1,9 +1,11 @@
 {
   "name": "ynov-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ynov JS 2022",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +19,11 @@
   },
   "homepage": "https://github.com/Marksu-u/YnovJS#readme",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "mongoose": "^6.8.0",
+    "nodemon": "^2.0.20"
   }
 }
