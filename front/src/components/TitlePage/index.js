@@ -1,8 +1,8 @@
 import React from 'react';
 
-const index = () => {
+const index = ({title}) => {
     return (
-            <h1>My page</h1>
+            <h1>{title}</h1>
     );
 }
 
