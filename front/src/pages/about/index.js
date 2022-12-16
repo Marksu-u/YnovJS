@@ -1,9 +1,11 @@
+// import React from 'react';
 import TitlePage from "../../components/TitlePage";
-
-const index = () => {
+const Index = () => {
   return (
-        <TitlePage title="About" />
-  )
-};
+    <div>
+      <TitlePage/>
+    </div>
+  );
+}
 
-export default index;
+export default Index;

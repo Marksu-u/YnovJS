@@ -1,9 +1,9 @@
-import TitlePage from '../components/TitlePage'
+import TitlePage from "../components/TitlePage";
 
-const index = () => {
+export default function Home() {
   return (
+    <main>
       <TitlePage title="Homepage"/>
+    </main>
   )
 }
-
-export default index;
