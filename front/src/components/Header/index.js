@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import Logo from "../../../public/netflix.png";
 
 const Index = () => {
-  console.log(Logo);
+
   return (
     <header className={styles.header__main}>
       <div className={styles.header__logo}>

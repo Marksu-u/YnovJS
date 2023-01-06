@@ -1,21 +1,5 @@
 const User = require("../models/user.model.js");
 
-exports.register = (req, res) => {
-  const newUser = new User({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password
-  })
-  newUser.save()
-    .then((user) => {
-      res.send(user)
-    })
-    .catch(err => {
-      res.status(404).send(err)
-    })
-}
-
 exports.updateUser = (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((user) => {
@@ -32,7 +16,7 @@ exports.updateUser = (req, res) => {
 }
 
 exports.getOneUser = (req, res) => {
-  User.findById(req.params.id).then((user) => {
+  User.findById(req.userToken.id).then((user) => {
     if (!user) {
       return res.status(404).send({
         message: "User not found"

@@ -4,6 +4,8 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import styles from "./index.module.scss";
 const Index = () => {
+  
+  console.log(process.env.NEXT_PUBLIC_API_BASE_URL);
 
   const [userForm, setUserForm] = useState({
     email: "",
@@ -16,7 +18,7 @@ const Index = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    fetch("http://localhost:4000/api/v1/auth/login", {
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL }/api/v1/auth/login`, {
       method: "POST",
       headers: {
         'Content-type':"application/json"

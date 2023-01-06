@@ -18,7 +18,7 @@ const Index = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    fetch("http://localhost:4000/api/v1/user", {
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/auth/register`, {
       method: "POST",
       headers: {
         'Content-type':"application/json"
