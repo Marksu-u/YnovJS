@@ -6,8 +6,6 @@ import styles from "./index.module.scss";
 const Index = () => {
 
   const [userForm, setUserForm] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: ""
   });
@@ -18,7 +16,7 @@ const Index = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    fetch("http://localhost:4000/api/v1/user", {
+    fetch("http://localhost:4000/api/v1/auth/login", {
       method: "POST",
       headers: {
         'Content-type':"application/json"
@@ -31,28 +29,8 @@ const Index = () => {
 
   return (
     <div className="page__register">
-      <TitlePage title="Create your account"/>
-      <form className={styles.form__register}>
-        <Input
-          titleLabel="firstname"
-          inputType="text"
-          inputPlaceholder="firstname"
-          inputName="firstName"
-          inputValue={userForm.firstName || ""}
-          inputOnChange={(e) => {
-            handleInput(e);
-          }}
-        />
-        <Input
-          titleLabel="lastname"
-          inputType="text"
-          inputPlaceholder="lastname"
-          inputName="lastName"
-          inputValue={userForm.lastName || ""}
-          inputOnChange={(e) => {
-            handleInput(e);
-          }}
-        />
+      <TitlePage title="Login your account"/>
+      <form className={styles.form__login}>
         <Input
           titleLabel="email"
           inputType="email"

@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from "./index.module.scss";
 
-const Index = (props) => {
+const Index = () => {
   return (
-    <div className={styles.title__page}>
-      <h1>{props.title}</h1>
-    </div>
+    <footer className={styles.footer__main}>
+      Footer
+    </footer>
   );
 }
 

@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from "./index.module.scss";
 
 const Index = (props) => {
   return (
-    <div className="input__wrapper">
+    <div className={styles.input__wrapper}>
       <label>{props.titleLabel}</label>
       <input
         type={props.inputType}
