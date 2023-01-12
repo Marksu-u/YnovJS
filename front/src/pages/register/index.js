@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import AuthService from '../../services/auth.service';
 import TitlePage from "../../components/TitlePage";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -18,13 +19,7 @@ const Index = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/auth/register`, {
-      method: "POST",
-      headers: {
-        'Content-type':"application/json"
-      },
-      body:JSON.stringify(userForm)
-    }).then(res => res.json())
+    AuthService(userForm)
       .then(user => console.log(user))
       .catch(err=>console.log(err))
   }

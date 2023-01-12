@@ -1,11 +1,16 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import AuthService from "../../services/auth.service";
 import TitlePage from "../../components/TitlePage";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import Notification from "../../components/Notification";
+
 import styles from "./index.module.scss";
+
 const Index = () => {
-  
-  console.log(process.env.NEXT_PUBLIC_API_BASE_URL);
+ 
+  const [message, setMessage] = useState(null);
+  const [type, setType] = useState(null);
 
   const [userForm, setUserForm] = useState({
     email: "",
@@ -18,15 +23,22 @@ const Index = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL }/api/v1/auth/login`, {
-      method: "POST",
-      headers: {
-        'Content-type':"application/json"
-      },
-      body:JSON.stringify(userForm)
-    }).then(res => res.json())
-      .then(user => console.log(user))
-      .catch(err=>console.log(err))
+    AuthService.login(userForm)
+      .then((data) => {
+        if (!data.token) {
+          setMessage(data.message);
+          setType("error")
+          return false;
+        } 
+        setMessage("login validé")
+        setType('success');
+      })
+      .catch(
+        (err) => {
+          console.log(err);
+          setMessage(err);
+        }
+      )
   }
 
   return (
@@ -61,6 +73,14 @@ const Index = () => {
           type="submit"
           btnClass="btn btn__primary"
         />
+        {/* {
+          message ? (
+            <Notification message={message}/>
+          ) : ""
+        } */}
+        {
+          message && <Notification type={type} message={message}/>
+        }
       </form>
     </div>
   );
