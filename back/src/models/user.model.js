@@ -29,7 +29,14 @@ const userSchema = mongoose.Schema({
   isAdmin: {
     type: Boolean,
     default:false
-  }
+  },
+  // ENUM 'customer', 'owner' OR BOTH
+   role: {
+    type: String,
+    enum: ['customer', 'owner'],
+    default: 'customer'
+  },
+
 })
 
 module.exports=mongoose.model('User', userSchema)

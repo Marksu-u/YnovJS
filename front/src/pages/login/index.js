@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router'
 import AuthService from "../../services/auth.service";
 import TitlePage from "../../components/TitlePage";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Notification from "../../components/Notification";
-
 import styles from "./index.module.scss";
 
 const Index = () => {
- 
+  const router = useRouter();
   const [message, setMessage] = useState(null);
   const [type, setType] = useState(null);
-
+  console.log(router);
   const [userForm, setUserForm] = useState({
     email: "",
     password: ""
@@ -30,8 +30,8 @@ const Index = () => {
           setType("error")
           return false;
         } 
-        setMessage("login validé")
-        setType('success');
+        localStorage.setItem('token', data.token);
+        router.push("/profil");
       })
       .catch(
         (err) => {

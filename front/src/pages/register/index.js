@@ -19,7 +19,7 @@ const Index = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    AuthService(userForm)
+    AuthService.register(userForm)
       .then(user => console.log(user))
       .catch(err=>console.log(err))
   }

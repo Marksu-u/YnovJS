@@ -5,7 +5,7 @@ const Index = ({ title, handleClick, type, btnClass }) => {
     <button
       onClick={handleClick}
       type={type}
-      className={btnClass}
+      className={`${styles.btn} ${styles[btnClass]}`}
     >
       {title}
     </button>

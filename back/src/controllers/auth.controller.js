@@ -1,6 +1,7 @@
 const User = require("../models/user.model.js");
 const bcrypt = require('bcrypt');
 const { signJwt } = require("../helpers/signJwt.js");
+const { body, validationResult } = require('express-validator');
 
 exports.register = (req, res) => {
 
