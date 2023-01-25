@@ -1,3 +1,4 @@
+//nySOThIhTbQjwfNt
 const mongoose = require('mongoose');
 
 const placeSchema = mongoose.Schema({
@@ -14,7 +15,6 @@ const placeSchema = mongoose.Schema({
         required: true,
         trim: true
     },
-    // from user model
     owner : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -25,7 +25,6 @@ const placeSchema = mongoose.Schema({
         required: true,
         trim: true
     },
-    // images list
     images : {
         type: [String],
         required: true
@@ -37,7 +36,6 @@ const placeSchema = mongoose.Schema({
         minLength: 2,
         maxLength:500
     },
-    // address with object street, city and zip
     address : {
         type: {
             street: {
@@ -61,7 +59,6 @@ const placeSchema = mongoose.Schema({
             },
             required: true
         },
-        // gps lat and long
         location: {
             type: {
                 lat: {
@@ -80,3 +77,6 @@ const placeSchema = mongoose.Schema({
         required: true
     },
 
+})
+
+module.exports=mongoose.model('Place', placeSchema)

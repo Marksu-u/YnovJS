@@ -30,7 +30,6 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     default:false
   },
-  // ENUM 'customer', 'owner' OR BOTH
    role: {
     type: String,
     enum: ['customer', 'owner'],
