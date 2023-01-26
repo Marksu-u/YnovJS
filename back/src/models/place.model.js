@@ -1,82 +1,76 @@
-//nySOThIhTbQjwfNt
 const mongoose = require('mongoose');
 
 const placeSchema = mongoose.Schema({
-    title : {
+    title: {
         type: String,
-        required: true,
+
         trim: true,
         lowercase: true,
         minLength: 2,
-        maxLength:50
+        maxLength: 50
     },
-    type : {
+    type: {
         type: Number,
-        required: true,
+
         trim: true
     },
-    owner : {
+    owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
     },
-    pricePerDay : {
+    pricePerDay: {
         type: Number,
-        required: true,
+
         trim: true
     },
-    images : {
+    images: {
         type: [String],
-        required: true
     },
-    description : {
+    description: {
         type: String,
-        required: true,
+
         trim: true,
         minLength: 2,
-        maxLength:500
+        maxLength: 500
     },
-    address : {
+    address: {
         type: {
             street: {
                 type: String,
-                required: true,
+
                 trim: true,
-                minLength: 2,   
-                maxLength:50
+                minLength: 2,
+                maxLength: 50
             },
             city: {
                 type: String,
-                required: true,
+
                 trim: true,
                 minLength: 2,
-                maxLength:50
+                maxLength: 50
             },
             zip: {
                 type: Number,
-                required: true,
+
                 trim: true
             },
-            required: true
         },
         location: {
             type: {
                 lat: {
                     type: Number,
-                    required: true,
+
                     trim: true
                 },
                 long: {
                     type: Number,
-                    required: true,
+
                     trim: true
                 }
             },
-            required: true
         },
-        required: true
     },
 
 })
 
-module.exports=mongoose.model('Place', placeSchema)
+module.exports = mongoose.model('Place', placeSchema)
