@@ -1,76 +1,49 @@
 const mongoose = require('mongoose');
 
 const placeSchema = mongoose.Schema({
-    title: {
-        type: String,
-
-        trim: true,
-        lowercase: true,
-        minLength: 2,
-        maxLength: 50
+  title: {
+    type: String,
+    required: true,
+    minLength: 5,
+    maxLength: 50
+  },
+  types: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "TypePlace",
+    required: true
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", 
+    required: true
+  },
+  pricing: {
+    perDay: Number
+  },
+  images: [String],
+  capacity: {
+    type: Number,
+    required:true
+  },
+  description: {
+    type: String,
+    required: true,
+    minLength: 20,
+    maxLength:300
+  },
+  address: {
+    city: String,
+    street: String,
+    zipCode: {
+      type: Number,
+      maxLength: 5,
+      minLength:5
     },
-    type: {
-        type: Number,
-
-        trim: true
-    },
-    owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-    },
-    pricePerDay: {
-        type: Number,
-
-        trim: true
-    },
-    images: {
-        type: [String],
-    },
-    description: {
-        type: String,
-
-        trim: true,
-        minLength: 2,
-        maxLength: 500
-    },
-    address: {
-        type: {
-            street: {
-                type: String,
-
-                trim: true,
-                minLength: 2,
-                maxLength: 50
-            },
-            city: {
-                type: String,
-
-                trim: true,
-                minLength: 2,
-                maxLength: 50
-            },
-            zip: {
-                type: Number,
-
-                trim: true
-            },
-        },
-        location: {
-            type: {
-                lat: {
-                    type: Number,
-
-                    trim: true
-                },
-                long: {
-                    type: Number,
-
-                    trim: true
-                }
-            },
-        },
-    },
-
+    gps: {
+      lat: Number,
+      long:Number
+    }
+  }
 })
 
 module.exports = mongoose.model('Place', placeSchema)

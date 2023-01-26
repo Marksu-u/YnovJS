@@ -30,12 +30,19 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     default:false
   },
-   role: {
-    type: String,
-    enum: ['customer', 'owner'],
-    default: 'customer'
-  },
-
+  type: [
+    {
+      type: String,
+      enum: ["CUSTOMER, OWNER"],
+      default:"CUSTOMER"
+    }
+  ],
+  places: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref:"Place"
+    }
+  ]
 })
 
 module.exports=mongoose.model('User', userSchema)

@@ -1,7 +1,6 @@
 const User = require("../models/user.model.js");
 const bcrypt = require('bcrypt');
 const { signJwt } = require("../helpers/signJwt.js");
-const { body, validationResult } = require('express-validator');
 
 exports.register = (req, res) => {
 
@@ -15,7 +14,6 @@ const newUser = new User({
 })
 newUser.save()
   .then((user) => {
-
     const userToken = signJwt({
       id: user._id,
       isAdmin: user.isAdmin
@@ -28,6 +26,7 @@ newUser.save()
   .catch(err => {
     res.status(404).send(err)
   })
+
 }
 
 exports.login = (req, res) => {
