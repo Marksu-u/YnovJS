@@ -19,3 +19,5 @@ const errorHandler = (err, req, res, next) => {
     // appliquer le middleware sur toutes l'app
 
     }
+
+    module.exports = errorHandler;
