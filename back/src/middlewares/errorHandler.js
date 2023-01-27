@@ -16,6 +16,13 @@ const errorHandler = (err, req, res, next) => {
         env: process.env.NODE_ENV
     });
 
+    req.status(400).json({
+        success: false,
+        status: err,
+        message: 'Bad Request',
+        env: process.env.NODE_ENV
+    });
+
     // appliquer le middleware sur toutes l'app
 
     }
