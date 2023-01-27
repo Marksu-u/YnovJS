@@ -2,11 +2,20 @@ const errorHandler = (err, req, res, next) => {
     console.log(err);
 
     // renvoyer une réponse avec le statut approprié
-    // réponse object avec les propriétés
+    req.status(500).json({
+        success: false,
+        status: err,
+        message: 'Internal Server Error',
+        env: process.env.NODE_ENV
+    });
 
-    success: false,
-    status: (err)
-    message:
-    env:
+    req.status(404).json({
+        success: false,
+        status: err,
+        message: 'Not Found',
+        env: process.env.NODE_ENV
+    });
+
+    // appliquer le middleware sur toutes l'app
 
     }
