@@ -24,7 +24,7 @@ newUser.save()
     })
   })
   .catch(err => {
-    res.status(404).send(err)
+    next(err)
   })
 
 }
